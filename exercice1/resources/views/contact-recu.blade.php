@@ -4,147 +4,244 @@
 @section('description', 'Votre message a été envoyé avec succès')
 
 @section('contenu')
-<!-- Section Hero -->
-<section class="hero">
-    <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
-    <h1>Message envoyé avec succès !</h1>
-    <p>Nous avons bien reçu votre message et vous répondrons rapidement</p>
-</section>
+<div class="container py-5">
+    <!-- Récapitulatif modernisé -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg mb-4">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-white border border-primary rounded-circle p-3 me-3">
+                            <i class="bi bi-envelope-check-fill text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h2 class="h4 mb-1 text-dark">Récapitulatif de votre message</h2>
+                            <p class="text-muted mb-0">Détails de votre demande</p>
+                        </div>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white border rounded-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-person-fill text-primary me-2"></i>
+                                    <small class="text-muted fw-bold">NOM</small>
+                                </div>
+                                <p class="mb-0 mt-1 fw-semibold">{{ $donnees['nom'] }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white border rounded-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                    <small class="text-muted fw-bold">EMAIL</small>
+                                </div>
+                                <p class="mb-0 mt-1 fw-semibold">
+                                    <a href="mailto:{{ $donnees['email'] }}" class="text-decoration-none">{{ $donnees['email'] }}</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white border rounded-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-tag-fill text-primary me-2"></i>
+                                    <small class="text-muted fw-bold">SUJET</small>
+                                </div>
+                                <p class="mb-0 mt-1 fw-semibold">{{ $donnees['sujet'] }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white border rounded-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-calendar-fill text-primary me-2"></i>
+                                    <small class="text-muted fw-bold">DATE D'ENVOI</small>
+                                </div>
+                                <p class="mb-0 mt-1 fw-semibold">{{ $donnees['date_envoi'] }}</p>
+                            </div>
+                        </div>
+                    </div>
 
-<!-- Section récapitulatif -->
-<section class="form-container">
-    <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">
-        📋 Récapitulatif de votre message
-    </h2>
-
-    <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-        <table class="table">
-            <tr>
-                <td style="font-weight: bold; color: #667eea; padding: 1rem;">Nom:</td>
-                <td style="padding: 1rem;">{{ $donnees['nom'] }}</td>
-            </tr>
-            <tr>
-                <td style="font-weight: bold; color: #667eea; padding: 1rem;">Email:</td>
-                <td style="padding: 1rem;">
-                    <a href="mailto:{{ $donnees['email'] }}" style="color: #667eea;">
-                        {{ $donnees['email'] }}
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td style="font-weight: bold; color: #667eea; padding: 1rem;">Sujet:</td>
-                <td style="padding: 1rem;">{{ $donnees['sujet'] }}</td>
-            </tr>
-            <tr>
-                <td style="font-weight: bold; color: #667eea; padding: 1rem;">Date d'envoi:</td>
-                <td style="padding: 1rem;">{{ $donnees['date_envoi'] }}</td>
-            </tr>
-        </table>
-    </div>
-
-    <div style="background: rgba(102, 126, 234, 0.1); padding: 2rem; border-radius: 15px; 
-                    border: 2px solid rgba(102, 126, 234, 0.2);">
-        <h3 style="color: #667eea; margin-bottom: 1rem;">💬 Votre message:</h3>
-        <div style="background: white; padding: 1.5rem; border-radius: 10px; 
-                       font-style: italic; line-height: 1.6; border-left: 4px solid #667eea;">
-            "{{ $donnees['message'] }}"
-        </div>
-    </div>
-
-    <!-- Section prochaines étapes -->
-    <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    border-radius: 15px; color: white; text-align: center;">
-        <h3 style="margin-bottom: 2rem;">🚀 Prochaines étapes</h3>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
-            <div>
-                <div style="font-size: 2rem; margin-bottom: 1rem;">📥</div>
-                <h4>Message reçu</h4>
-                <p style="opacity: 0.9; font-size: 0.9rem;">Votre message est dans notre boîte de réception</p>
+                    <div class="border-top pt-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-chat-quote-fill text-primary me-2"></i>
+                            <h3 class="h6 mb-0 text-dark fw-bold">Votre message</h3>
+                        </div>
+                        <div class="bg-white border border-primary border-start border-4 p-3 rounded-end">
+                            <p class="mb-0 fst-italic text-dark">"{{ $donnees['message'] }}"</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div style="font-size: 2rem; margin-bottom: 1rem;">👥</div>
-                <h4>Analyse par l'équipe</h4>
-                <p style="opacity: 0.9; font-size: 0.9rem;">Notre équipe va analyser votre demande</p>
+
+            <!-- Fil d'ariane de traitement - Style livraison -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h3 class="h5 text-center mb-4 text-dark">Suivi de votre demande</h3>
+
+                    <div class="row text-center position-relative">
+                        
+
+                        <!-- Étape 1 - Message reçu -->
+                        <div class="col-4 position-relative" style="z-index: 2;">
+                            <div class="mb-3">
+                                <div class="bg-success rounded-circle mx-auto d-flex align-items-center justify-content-center text-white" style="width: 60px; height: 60px;">
+                                    <i class="bi bi-check-circle-fill fs-4"></i>
+                                </div>
+                            </div>
+                            <h4 class="h6 fw-bold text-success">Message reçu</h4>
+                            <p class="small text-muted mb-0">Votre message est bien enregistré</p>
+                            <small class="text-success fw-semibold">✓ Terminé</small>
+                        </div>
+
+                        <!-- Étape 2 - Analyse -->
+                        <div class="col-4 position-relative" style="z-index: 2;">
+                            <div class="mb-3">
+                                <div class="bg-warning rounded-circle mx-auto d-flex align-items-center justify-content-center text-white" style="width: 60px; height: 60px;">
+                                    <i class="bi bi-hourglass-split fs-4"></i>
+                                </div>
+                            </div>
+                            <h4 class="h6 fw-bold text-warning">Analyse</h4>
+                            <p class="small text-muted mb-0">Étude personnalisée de votre demande</p>
+                            <small class="text-warning fw-semibold">⏳ En cours</small>
+                        </div>
+
+                        <!-- Étape 3 - Réponse -->
+                        <div class="col-4 position-relative" style="z-index: 2;">
+                            <div class="mb-3">
+                                <div class="bg-secondary rounded-circle mx-auto d-flex align-items-center justify-content-center text-white" style="width: 60px; height: 60px;">
+                                    <i class="bi bi-reply-fill fs-4"></i>
+                                </div>
+                            </div>
+                            <h4 class="h6 fw-bold text-secondary">Réponse</h4>
+                            <p class="small text-muted mb-0">Réponse sous 24h maximum</p>
+                            <small class="text-secondary fw-semibold">⏸️ En attente</small>
+                        </div>
+                    </div>
+
+                    <!-- Temps de réponse estimé -->
+                    <div class="text-center mt-4 p-3 bg-info bg-opacity-10 rounded-3">
+                        <i class="bi bi-clock-fill text-info me-2"></i>
+                        <strong class="text-info">Temps de réponse estimé : 24 heures maximum</strong>
+                    </div>
+                </div>
             </div>
-            <div>
-                <div style="font-size: 2rem; margin-bottom: 1rem;">📞</div>
-                <h4>Réponse rapide</h4>
-                <p style="opacity: 0.9; font-size: 0.9rem;">Nous vous répondrons sous 24h</p>
+
+            <!-- Navigation simplifiée -->
+            <div class="text-center mb-5">
+                <a href="{{ route('accueil') }}" class="btn btn-primary btn-lg px-5">
+                    <i class="bi bi-house-fill me-2"></i>Retour à l'accueil
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Section actions -->
-    <div style="text-align: center; margin-top: 2rem;">
-        <div style="margin-bottom: 2rem;">
-            <p style="margin-bottom: 1rem;">
-                <strong>Temps de réponse estimé:</strong>
-                <span style="color: #667eea;">24 heures maximum</span>
-            </p>
-            <p style="font-size: 0.9rem; color: #666;">
-                Si votre demande est urgente, n'hésitez pas à nous appeler au
-                <a href="tel:+33123456789" style="color: #667eea;">+33 1 23 45 67 89</a>
-            </p>
-        </div>
+    <!-- Témoignages modernisés avec modales -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <?php
+            $testimonials = [
+                [
+                    'nom' => 'Sophie L.',
+                    'entreprise' => 'Startup Tech',
+                    'message' => 'Réactivité exceptionnelle !',
+                    'messageComplet' => 'Service client absolument parfait ! Chad a répondu à toutes mes questions en moins de 2 heures et a livré un site web professionnel qui dépasse mes attentes. Je recommande vivement ses services.',
+                    'note' => 5,
+                    'avatar' => 'SL',
+                ],
+                [
+                    'nom' => 'Marc D.',
+                    'entreprise' => 'E-commerce Plus',
+                    'message' => 'Très professionnel, projet livré dans les délais.',
+                    'messageComplet' => 'Collaboration extraordinaire avec Chad. Il a transformé notre boutique en ligne avec un design moderne et une expérience utilisateur impeccable. Livraison dans les temps et budget respecté.',
+                    'note' => 5,
+                    'avatar' => 'MD',
+                ],
+                [
+                    'nom' => 'Julie M.',
+                    'entreprise' => 'Design Agency',
+                    'message' => 'Excellent travail sur la refonte web.',
+                    'messageComplet' => 'Chad a complètement transformé notre présence en ligne. Son expertise en UI/UX est remarquable et il comprend parfaitement les besoins business. Un vrai partenaire de confiance.',
+                    'note' => 5,
+                    'avatar' => 'JM',
+                ],
+            ];
+            ?>
 
-        <div style="margin-top: 2rem;">
-            <a href="{{ route('accueil') }}" class="btn" style="margin-right: 1rem;">
-                🏠 Retour à l'accueil
-            </a>
-            <a href="{{ route('services') }}" class="btn btn-secondary">
-                🔍 Voir nos services
-            </a>
+            <h3 class="h5 text-center text-primary mb-4">⭐ Ce que disent mes clients</h3>
+
+            <div class="row g-4">
+                @foreach($testimonials as $index => $testimonial)
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm" data-bs-toggle="modal" data-bs-target="#modal{{ $index }}">
+                        <div class="card-body text-center p-4">
+                            <!-- Avatar personnalisé -->
+                            <div class="mx-auto mb-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 60px; height: 60px;">
+                                {{ $testimonial['avatar'] }}
+                            </div>
+
+                            <!-- Note étoiles -->
+                            <div class="mb-3">
+                                @for($i = 1; $i <= 5; $i++)
+                                    <i class="bi bi-star-fill" style="color: {{ $i <= $testimonial['note'] ? '#ffc107' : '#e9ecef' }};"></i>
+                                    @endfor
+                            </div>
+
+                            <!-- Message court -->
+                            <p class="fst-italic mb-3 text-muted">"{{ $testimonial['message'] }}"</p>
+
+                            <!-- Informations client -->
+                            <div>
+                                <h6 class="fw-bold text-dark mb-1">{{ $testimonial['nom'] }}</h6>
+                                <small class="text-muted">{{ $testimonial['entreprise'] }}</small>
+                            </div>
+
+                            <!-- Indicateur de clic -->
+                            <div class="mt-3">
+                                <small class="text-primary">
+                                    <i class="bi bi-eye-fill me-1"></i>Cliquer pour lire plus
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal pour chaque témoignage -->
+                <div class="modal fade" id="modal{{ $index }}" tabindex="-1" aria-labelledby="modalLabel{{ $index }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 shadow rounded-3">
+                            <div class="modal-header border-0 pb-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-3" style="width: 50px; height: 50px;">
+                                        {{ $testimonial['avatar'] }}
+                                    </div>
+                                    <div>
+                                        <h5 class="modal-title fw-bold" id="modalLabel{{ $index }}">{{ $testimonial['nom'] }}</h5>
+                                        <small class="text-muted">{{ $testimonial['entreprise'] }}</small>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Note étoiles -->
+                                <div class="text-center mb-4">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <i class="bi bi-star-fill fs-5" style="color: {{ $i <= $testimonial['note'] ? '#ffc107' : '#e9ecef' }};"></i>
+                                        @endfor
+                                </div>
+
+                                <!-- Message complet -->
+                                <p class="text-muted fst-italic text-center">
+                                    "{{ $testimonial['messageComplet'] }}"
+                                </p>
+                            </div>
+                            <div class="modal-footer border-0 pt-0">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
-</section>
-
-<!-- Section témoignages -->
-<section class="cards">
-    @php
-    $testimonials = [
-    [
-    'nom' => 'Sophie L.',
-    'entreprise' => 'Startup Tech',
-    'message' => 'Réactivité exceptionnelle ! Ils ont répondu en moins de 2 heures.',
-    'note' => 5
-    ],
-    [
-    'nom' => 'Marc D.',
-    'entreprise' => 'E-commerce Plus',
-    'message' => 'Équipe très professionnelle, projet livré dans les délais.',
-    'note' => 5
-    ],
-    [
-    'nom' => 'Julie M.',
-    'entreprise' => 'Design Agency',
-    'message' => 'Excellent travail sur notre refonte web, très satisfaits !',
-    'note' => 5
-    ]
-    ];
-    @endphp
-
-    <div style="grid-column: 1 / -1; text-align: center; margin-bottom: 1rem;">
-        <h3 style="color: #667eea;">⭐ Ce que disent nos clients</h3>
-    </div>
-
-    @foreach($testimonials as $testimonial)
-    <div class="card" style="text-align: center;">
-        <div style="margin-bottom: 1rem;">
-            @for($i = 1; $i <= 5; $i++)
-                <span style="color: {{ $i <= $testimonial['note'] ? '#ffd700' : '#ddd' }}; font-size: 1.2rem;">⭐</span>
-                @endfor
-        </div>
-
-        <p style="font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">
-            "{{ $testimonial['message'] }}"
-        </p>
-
-        <div>
-            <strong style="color: #667eea;">{{ $testimonial['nom'] }}</strong><br>
-            <small style="color: #666;">{{ $testimonial['entreprise'] }}</small>
-        </div>
-    </div>
-    @endforeach
-</section>
+</div>
 @endsection
