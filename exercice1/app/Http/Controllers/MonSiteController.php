@@ -47,7 +47,7 @@ class MonSiteController extends Controller
             ],
             [
                 'categorie' => 'Design',
-                'technologies' => ['Figma', 'Photoshop', 'UI/UX Design']
+                'technologies' => ['Figma', 'Photoshop','Illustrator', 'UI/UX Design']
             ],
             [
                 'categorie' => 'CMS & Outils',
@@ -110,9 +110,9 @@ class MonSiteController extends Controller
         $services = [
             [
                 'titre' => 'Site Vitrine',
-                'description' => 'Création de sites web et applications web modernes avec Laravel, React, Vue.js. Sites responsives et optimisés pour tous les appareils.',
+                'description' => 'Création de sites web et applications web modernes avec React, Vue.js. Sites responsives et optimisés pour tous les appareils.',
                 'duree' => '2-6 semaines',
-                'technologies' => ['Laravel', 'PHP', 'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'MySQL', 'SQLite', 'CSS3', 'HTML5', 'Tailwind', 'Bootstrap']
+                'technologies' => ['JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Vue.js', 'CSS3', 'HTML5', 'Tailwind', 'Bootstrap']
             ],
             [
                 'titre' => 'Maquette de site web',
@@ -128,9 +128,9 @@ class MonSiteController extends Controller
             ],
             [
                 'titre' => 'Applications Web',
-                'description' => 'Applications web sur mesure pour répondre à vos besoins spécifiques. Tableaux de bord et outils de gestion.',
+                'description' => 'Applications web Full Stack sur mesure pour répondre à vos besoins spécifiques. Tableaux de bord et outils de gestion.',
                 'duree' => '6-12 semaines',
-                'technologies' => ['Laravel', 'Vue.js', 'React.js', 'Next.js', 'TypeScript', 'API REST', 'MySQL', 'SQLite']
+                'technologies' => ['Laravel', 'PHP', 'Vue.js', 'React.js', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'API REST', 'MySQL', 'SQLite']
             ]
         ];
 
