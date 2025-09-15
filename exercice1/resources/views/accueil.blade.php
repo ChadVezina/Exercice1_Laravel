@@ -57,13 +57,13 @@
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="text-center">
-                    <h3 class="display-4 fw-bold text-warning">10</h3>
+                    <h3 class="display-4 fw-bold text-warning">10+</h3>
                     <p class="fs-5">Projets réalisés</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="text-center">
-                    <h3 class="display-4 fw-bold text-warning">3</h3>
+                    <h3 class="display-4 fw-bold text-warning">3+</h3>
                     <p class="fs-5">Années d'expérience</p>
                 </div>
             </div>
