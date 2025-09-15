@@ -25,6 +25,7 @@ Le site présente un développeur web avec ses compétences, services et portfol
 -   **Architecture** : MVC (Model-View-Controller)
 -   **Validation** : Validation Laravel côté serveur avec messages personnalisés
 -   **Sessions** : Confirmation de contact renvoyée directement à la vue (pas de dépendance aux messages flash)
+-   **Timezone** : Configuration par défaut sur America/Montreal
 
 ## Structure du projet
 
@@ -75,9 +76,10 @@ Le site présente un développeur web avec ses compétences, services et portfol
     composer install
     ```
 3. Copier le fichier d'environnement :
-    ```bash
+   `bash
     cp .env.example .env
-    ```
+    `
+   **Note** : Le projet est configuré par défaut avec le timezone `America/Montreal` dans le fichier `.env.example`.
 
 ### Lancement du serveur
 
@@ -101,18 +103,17 @@ si votre port est déjà occupé il sera disponible au port 8001 , 8002 etc.. ju
 -   **Compétences techniques organisées par catégories** :
     -   Frontend : HTML5, CSS3, JavaScript, TypeScript, React.js, Next.js, Vue.js, Tailwind, Bootstrap, Sass
     -   Backend : PHP, Laravel, MySQL, SQLite, API REST
-    -   Design : Figma, Photoshop, UI/UX Design
+    -   Design : Figma, Photoshop, Illustrator, UI/UX Design
     -   CMS & Outils : WordPress, Git, VS Code, Docker, NPM, Composer
 
 ### Page Services
 
 -   **4 services détaillés** :
--   **4 services détaillés** :
-    1.  Site Vitrine (2-6 semaines)
-    2.  Maquette de site web (1-3 semaines)
-    3.  Sites E-commerce (4-8 semaines)
-    4.  Applications Web (6-12 semaines)
--   Chaque service inclut : description, durée et technologies utilisées
+    1.  Site Vitrine (2-6 semaines) - Technologies : JavaScript, TypeScript, React.js, Next.js, Vue.js, CSS3, HTML5, Tailwind, Bootstrap
+    2.  Maquette de site web (1-3 semaines) - Technologies : Figma, Photoshop, Illustrator
+    3.  Sites E-commerce (4-8 semaines) - Technologies : Laravel, WordPress, Stripe, PayPal, Vue.js, React.js
+    4.  Applications Web (6-12 semaines) - Technologies : Laravel, PHP, Vue.js, React.js, Next.js, TypeScript, JavaScript, HTML5, CSS3, API REST, MySQL, SQLite
+-   Chaque service inclut : description détaillée, durée estimée et technologies utilisées
 
 ### Formulaire de Contact
 
@@ -150,7 +151,7 @@ Les messages d'erreur personnalisés sont fournis en français dans le contrôle
 ### Traitement des données
 
 -   Récupération sécurisée avec `$request->input()`
--   Horodatage automatique avec `now()->format()`
+-   Horodatage automatique avec `now()->format()` (timezone America/Montreal)
 -   Affichage complet des données sur la page de confirmation
 
 ## Design et interface utilisateur
