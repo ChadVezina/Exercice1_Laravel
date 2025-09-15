@@ -1,132 +1,154 @@
 @extends('layouts.master')
 
-@section('titre', 'Nos Services')
-@section('description', 'Découvrez notre gamme complète de services de développement web et consulting')
+@section('titre', 'Mes Services')
+@section('description', 'Découvrez ma gamme complète de services de développement web et design')
 
 @section('contenu')
 <!-- Section Hero -->
-<section class="hero">
-    <h1>Nos Services</h1>
-    <p>Des solutions sur mesure pour vos projets digitaux</p>
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-3">Mes Services</h1>
+                <p class="lead">Des solutions sur mesure pour vos projets digitaux</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Section services détaillés -->
-<section class="cards">
-    @foreach($services as $index => $service)
-    @php
-    $borderColors = [
-    0 => 'border-top: 4px solid #667eea;',
-    1 => 'border-top: 4px solid #764ba2;',
-    2 => 'border-top: 4px solid #f093fb;',
-    3 => 'border-top: 4px solid #f5576c;'
-    ];
-    $borderStyle = $borderColors[$index] ?? '';
-    @endphp
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            @foreach($services as $index => $service)
+            @php
+            $borderColors = [
+            0 => 'border-primary',
+            1 => 'border-secondary',
+            2 => 'border-success',
+            3 => 'border-info'
+            ];
+            $bgColors = [
+            0 => 'bg-primary',
+            1 => 'bg-secondary',
+            2 => 'bg-success',
+            3 => 'bg-info'
+            ];
+            $borderClass = $borderColors[$index] ?? 'border-primary';
+            $bgClass = $bgColors[$index] ?? 'bg-primary';
+            @endphp
 
-    <div class="card" style="{{ $borderStyle }}">
+            <div class="col-lg-6">
+                <div class="card h-100 shadow-sm border-0 {{ $borderClass }}" style="border-top: 4px solid !important;">
+                    <div class="card-header {{ $bgClass }} text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="card-title h5 mb-0">{{ $service['titre'] }}</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text mb-4">{{ $service['description'] }}</p>
 
-        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-            <h3>{{ $service['titre'] }}</h3>
-            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; 
-                                border-radius: 20px; font-weight: bold; white-space: nowrap;">
-                {{ $service['prix'] }}
-            </span>
-        </div>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="bg-light p-3 rounded">
+                                    <strong><i class="bi bi-clock"></i> Durée estimée:</strong><br>
+                                    <span class="text-muted">{{ $service['duree'] }}</span>
+                                </div>
+                            </div>
+                        </div>
 
-        <p style="margin-bottom: 1.5rem;">{{ $service['description'] }}</p>
+                        <div class="mb-4">
+                            <h4 class="h6 mb-3"><i class="bi bi-tools"></i> Technologies utilisées:</h4>
+                            <div class="d-flex flex-wrap gap-1">
+                                @foreach($service['technologies'] as $tech)
+                                <span class="badge bg-light text-dark border">{{ $tech }}</span>
+                                @endforeach
+                            </div>
+                        </div>
 
-        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div>
-                    <strong>⏱️ Durée:</strong><br>
-                    <span>{{ $service['duree'] }}</span>
-                </div>
-                <div>
-                    <strong>💰 Tarif:</strong><br>
-                    <span>{{ $service['prix'] }}</span>
+                        <div class="text-center">
+                            <a href="{{ route('contact') }}" class="btn {{ str_replace('border-', 'btn-', $borderClass) }}">
+                                <i class="bi bi-envelope"></i> Discuter du projet
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div style="margin-bottom: 2rem;">
-            <h4 style="margin-bottom: 1rem;">🛠️ Technologies utilisées:</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                @foreach($service['technologies'] as $tech)
-                <span style="background: rgba(102, 126, 234, 0.1); color: #667eea; 
-                                        padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.9rem;
-                                        border: 1px solid rgba(102, 126, 234, 0.3);">
-                    {{ $tech }}
-                </span>
-                @endforeach
-            </div>
-        </div>
-
-        <div style="text-align: center;">
-            <a href="{{ route('contact') }}" class="btn">Demander un devis</a>
+            @endforeach
         </div>
     </div>
-    @endforeach
 </section>
 
 <!-- Section processus de travail -->
-<section class="form-container">
-    <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Notre processus de travail</h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-        @php
-        $processus = [
-        [
-        'numero' => '1',
-        'titre' => 'Analyse des besoins',
-        'description' => 'Nous étudions votre projet en détail pour comprendre vos objectifs et contraintes.'
-        ],
-        [
-        'numero' => '2',
-        'titre' => 'Proposition technique',
-        'description' => 'Nous vous proposons une solution technique adaptée avec un devis détaillé.'
-        ],
-        [
-        'numero' => '3',
-        'titre' => 'Développement',
-        'description' => 'Notre équipe développe votre projet en suivant les meilleures pratiques.'
-        ],
-        [
-        'numero' => '4',
-        'titre' => 'Tests & Livraison',
-        'description' => 'Nous testons rigoureusement avant de livrer un produit de qualité.'
-        ]
-        ];
-        @endphp
-
-        @foreach($processus as $etape)
-        <div style="text-align: center; padding: 2rem; background: rgba(102, 126, 234, 0.05); 
-                           border-radius: 15px; border: 2px solid rgba(102, 126, 234, 0.1);">
-            <div style="width: 60px; height: 60px; background: #667eea; color: white; 
-                               border-radius: 50%; display: flex; align-items: center; justify-content: center;
-                               font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;">
-                {{ $etape['numero'] }}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col text-center">
+                <h2 class="display-6 fw-bold text-primary">Mon processus de travail</h2>
+                <p class="lead text-muted">Comment je m'y prends pour mener à bien vos projets</p>
             </div>
-            <h4 style="margin-bottom: 1rem; color: #333;">{{ $etape['titre'] }}</h4>
-            <p style="color: #666;">{{ $etape['description'] }}</p>
         </div>
-        @endforeach
+
+        <div class="row g-4">
+            @php
+            $processus = [
+            [
+            'numero' => '1',
+            'titre' => 'Analyse des besoins',
+            'description' => 'J\'étudie votre projet en détail pour comprendre vos objectifs et contraintes.'
+            ],
+            [
+            'numero' => '2',
+            'titre' => 'Proposition technique',
+            'description' => 'Je vous propose une solution technique adaptée avec un planning détaillé.'
+            ],
+            [
+            'numero' => '3',
+            'titre' => 'Développement',
+            'description' => 'Je développe votre projet en suivant les meilleures pratiques du secteur.'
+            ],
+            [
+            'numero' => '4',
+            'titre' => 'Tests & Livraison',
+            'description' => 'Je teste rigoureusement avant de livrer un produit de qualité.'
+            ]
+            ];
+            @endphp
+
+            @foreach($processus as $etape)
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-4 h-100">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <span class="fs-4 fw-bold">{{ $etape['numero'] }}</span>
+                    </div>
+                    <h4 class="h5 mb-3">{{ $etape['titre'] }}</h4>
+                    <p class="text-muted">{{ $etape['description'] }}</p>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
 </section>
 
 <!-- Section call to action -->
-<section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                    padding: 4rem 2rem; border-radius: 15px; text-align: center; color: white;">
-    <h2 style="margin-bottom: 1rem;">Prêt à démarrer votre projet ?</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
-        Contactez-nous dès aujourd'hui pour discuter de vos besoins et obtenir un devis personnalisé.
-    </p>
-    <div>
-        <a href="{{ route('contact') }}" class="btn btn-secondary" style="margin-right: 1rem;">
-            Demander un devis
-        </a>
-        <a href="tel:+33123456789" class="btn" style="background: rgba(255,255,255,0.2);">
-            📞 Nous appeler
-        </a>
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-6 fw-bold mb-3">Prêt à démarrer votre projet ?</h2>
+                <p class="lead mb-4">
+                    Contactez-moi dès aujourd'hui pour discuter de vos besoins et voir comment je peux vous aider.
+                </p>
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="{{ route('contact') }}" class="btn btn-light btn-lg">
+                        <i class="bi bi-envelope"></i> Me contacter
+                    </a>
+                    <a href="{{ route('apropos') }}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-person"></i> En savoir plus sur moi
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 @endsection

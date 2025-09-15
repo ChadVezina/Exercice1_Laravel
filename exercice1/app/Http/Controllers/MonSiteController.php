@@ -12,23 +12,18 @@ class MonSiteController extends Controller
     public function index()
     {
         $donnees = [
-            'titre' => 'Bienvenue sur Mon Site Web',
-            'description' => 'Un projet Laravel moderne et responsive',
+            'titre' => 'Bienvenue sur mon Portfolio',
+            'description' => 'Développeur Web & Designer UI/UX avec 3 ans d\'expérience',
             'services' => [
                 [
                     'nom' => 'Développement Web',
-                    'description' => 'Création de sites web modernes et responsives',
+                    'description' => 'Création de sites web modernes et applications web responsives',
                     'icone' => '💻'
                 ],
                 [
                     'nom' => 'Design UI/UX',
-                    'description' => 'Interface utilisateur intuitive et moderne',
+                    'description' => 'Interfaces utilisateur intuitives et expérience utilisateur optimisée',
                     'icone' => '🎨'
-                ],
-                [
-                    'nom' => 'Consulting',
-                    'description' => 'Conseils et expertise technique',
-                    'icone' => '💡'
                 ]
             ]
         ];
@@ -41,22 +36,26 @@ class MonSiteController extends Controller
      */
     public function apropos()
     {
-        $equipe = [
+        $competences = [
             [
-                'nom' => 'Alex Dubois',
-                'poste' => 'Développeur Full-Stack',
-                'experience' => '5 ans',
-                'specialites' => ['Laravel', 'Vue.js', 'MySQL']
+                'categorie' => 'Frontend',
+                'technologies' => ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Vue.js', 'Tailwind', 'Bootstrap', 'Sass']
             ],
             [
-                'nom' => 'Marie Martin',
-                'poste' => 'Designer UI/UX',
-                'experience' => '4 ans',
-                'specialites' => ['Figma', 'Adobe Creative', 'Prototypage']
+                'categorie' => 'Backend',
+                'technologies' => ['PHP', 'Laravel', 'MySQL', 'SQLite', 'API REST']
+            ],
+            [
+                'categorie' => 'Design',
+                'technologies' => ['Figma', 'Photoshop', 'UI/UX Design']
+            ],
+            [
+                'categorie' => 'CMS & Outils',
+                'technologies' => ['WordPress', 'Git', 'VS Code', 'Docker', 'NPM', 'Composer']
             ]
         ];
 
-        return view('apropos', compact('equipe'));
+        return view('apropos', compact('competences'));
     }
 
     /**
@@ -110,31 +109,27 @@ class MonSiteController extends Controller
         $services = [
             [
                 'titre' => 'Développement Web',
-                'description' => 'Création de sites web et applications web modernes avec Laravel, React, Vue.js',
-                'prix' => 'À partir de 1500€',
+                'description' => 'Création de sites web et applications web modernes avec Laravel, React, Vue.js. Sites responsives et optimisés pour tous les appareils.',
                 'duree' => '2-6 semaines',
-                'technologies' => ['Laravel', 'PHP', 'JavaScript', 'MySQL', 'CSS3', 'HTML5']
+                'technologies' => ['Laravel', 'PHP', 'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'MySQL', 'SQLite', 'CSS3', 'HTML5', 'Tailwind', 'Bootstrap']
             ],
             [
-                'titre' => 'E-commerce',
-                'description' => 'Boutiques en ligne complètes avec système de paiement et gestion des stocks',
-                'prix' => 'À partir de 2500€',
+                'titre' => 'Design UI/UX',
+                'description' => 'Conception d\'interfaces utilisateur intuitives et expériences utilisateur optimisées. Prototypage et wireframing.',
+                'duree' => '1-3 semaines',
+                'technologies' => ['Figma', 'Photoshop', 'Illustrator']
+            ],
+            [
+                'titre' => 'Sites E-commerce',
+                'description' => 'Boutiques en ligne complètes avec système de paiement sécurisé et gestion des stocks intégrée.',
                 'duree' => '4-8 semaines',
-                'technologies' => ['Laravel', 'Stripe', 'PayPal', 'Vue.js', 'Bootstrap']
+                'technologies' => ['Laravel', 'WordPress', 'Stripe', 'PayPal', 'Vue.js', 'React.js']
             ],
             [
-                'titre' => 'Applications Mobile',
-                'description' => 'Applications mobiles natives et hybrides pour iOS et Android',
-                'prix' => 'À partir de 3000€',
+                'titre' => 'Applications Web',
+                'description' => 'Applications web sur mesure pour répondre à vos besoins spécifiques. Tableaux de bord et outils de gestion.',
                 'duree' => '6-12 semaines',
-                'technologies' => ['React Native', 'Flutter', 'Firebase', 'API REST']
-            ],
-            [
-                'titre' => 'Consulting & Formation',
-                'description' => 'Conseil technique, audit de code, formation d\'équipes de développement',
-                'prix' => '500€/jour',
-                'duree' => 'Variable',
-                'technologies' => ['Architecture', 'Best Practices', 'Code Review', 'DevOps']
+                'technologies' => ['Laravel', 'Vue.js', 'React.js', 'Next.js', 'TypeScript', 'API REST', 'MySQL', 'SQLite']
             ]
         ];
 
