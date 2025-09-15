@@ -79,7 +79,8 @@ Le site présente un développeur web avec ses compétences, services et portfol
    `bash
     cp .env.example .env
     `
-   **Note** : Le projet est configuré par défaut avec le timezone `America/Montreal` dans le fichier `.env.example`.
+   
+**Note** : Le projet est configuré par défaut avec le timezone `America/Montreal` dans le fichier `.env.example`.
 
 ### Lancement du serveur
 
