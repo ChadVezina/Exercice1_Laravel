@@ -108,13 +108,13 @@ class MonSiteController extends Controller
     {
         $services = [
             [
-                'titre' => 'Développement Web',
+                'titre' => 'Site Vitrine',
                 'description' => 'Création de sites web et applications web modernes avec Laravel, React, Vue.js. Sites responsives et optimisés pour tous les appareils.',
                 'duree' => '2-6 semaines',
                 'technologies' => ['Laravel', 'PHP', 'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'MySQL', 'SQLite', 'CSS3', 'HTML5', 'Tailwind', 'Bootstrap']
             ],
             [
-                'titre' => 'Design UI/UX',
+                'titre' => 'Maquette de site web',
                 'description' => 'Conception d\'interfaces utilisateur intuitives et expériences utilisateur optimisées. Prototypage et wireframing.',
                 'duree' => '1-3 semaines',
                 'technologies' => ['Figma', 'Photoshop', 'Illustrator']
