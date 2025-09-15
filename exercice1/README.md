@@ -15,7 +15,7 @@ Le site présente un développeur web avec ses compétences, services et portfol
 -   ✅ **Traitement des données** : Gestion POST avec validation Laravel et messages personnalisés
 -   ✅ **Design responsive** : Interface moderne adaptée à tous les appareils
 -   ✅ **Routes nommées** : Toutes les routes sont nommées pour une meilleure organisation
--   ✅ **Messages flash** : Système de notifications de succès intégré
+-   ✅ **Confirmation directe** : La confirmation du formulaire de contact est renvoyée via la vue `contact-recu` (pas de messages flash de session)
 
 ## Technologies utilisées
 
@@ -24,7 +24,7 @@ Le site présente un développeur web avec ses compétences, services et portfol
 -   **Base de données** : SQLite (configuration par défaut)
 -   **Architecture** : MVC (Model-View-Controller)
 -   **Validation** : Validation Laravel côté serveur avec messages personnalisés
--   **Sessions** : Gestion des messages flash pour les notifications
+-   **Sessions** : Confirmation de contact renvoyée directement à la vue (pas de dépendance aux messages flash)
 
 ## Structure du projet
 
@@ -78,14 +78,15 @@ Le site présente un développeur web avec ses compétences, services et portfol
     ```bash
     cp .env.example .env
     ```
+
 ### Lancement du serveur
 
 ```bash
-php artisan serve 
+php artisan serve
 ```
 
 Le site sera accessible à l'adresse : `http://localhost:8000`,
-si votre port est déjà occupé il sera disponible au port 8001 , 8002 etc.. jusqu'à trouver un port valide 
+si votre port est déjà occupé il sera disponible au port 8001 , 8002 etc.. jusqu'à trouver un port valide
 
 ## Contenu et données du site
 
@@ -106,10 +107,11 @@ si votre port est déjà occupé il sera disponible au port 8001 , 8002 etc.. ju
 ### Page Services
 
 -   **4 services détaillés** :
-    1. Développement Web (2-6 semaines)
-    2. Design UI/UX (1-3 semaines)
-    3. Sites E-commerce (4-8 semaines)
-    4. Applications Web (6-12 semaines)
+-   **4 services détaillés** :
+    1.  Site Vitrine (2-6 semaines)
+    2.  Maquette de site web (1-3 semaines)
+    3.  Sites E-commerce (4-8 semaines)
+    4.  Applications Web (6-12 semaines)
 -   Chaque service inclut : description, durée et technologies utilisées
 
 ### Formulaire de Contact
@@ -118,6 +120,17 @@ si votre port est déjà occupé il sera disponible au port 8001 , 8002 etc.. ju
 -   Messages d'erreur en français
 -   Page de confirmation avec récapitulatif complet
 -   Horodatage automatique des soumissions
+
+## Détails d'implémentation
+
+-   Le formulaire de contact POST `/contact` est traité par `MonSiteController::traiterContact()` et renvoie directement la vue `contact-recu` avec les données soumises et une variable `messageSucces` contenant le texte de confirmation.
+-   Règles de validation côté serveur utilisées :
+    -   `nom` : required|string|max:255
+    -   `email` : required|email|max:255
+    -   `sujet` : required|string|max:255
+    -   `message` : required|string|min:10
+
+Les messages d'erreur personnalisés sont fournis en français dans le contrôleur.
 
 ## Validation et gestion des données
 
@@ -156,4 +169,3 @@ si votre port est déjà occupé il sera disponible au port 8001 , 8002 etc.. ju
 -   Menu de navigation cohérent sur toutes les pages
 -   Routes nommées pour une gestion propre des liens
 -   Design responsive avec adaptation mobile
-
