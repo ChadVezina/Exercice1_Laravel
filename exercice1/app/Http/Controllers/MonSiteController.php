@@ -96,9 +96,10 @@ class MonSiteController extends Controller
         ];
 
         // Simulation de l'envoi (dans un vrai projet, on enverrait un email)
-        session()->flash('success', 'Votre message a été envoyé avec succès !');
+        $messageSucces = 'Votre message a été envoyé avec succès !';
 
-        return view('contact-recu', compact('donnees'));
+        // Passer le message directement à la vue pour éviter d'utiliser le flash session
+        return view('contact-recu', compact('donnees', 'messageSucces'));
     }
 
     /**

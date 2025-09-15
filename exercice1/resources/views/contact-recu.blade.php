@@ -5,6 +5,13 @@
 
 @section('contenu')
 <div class="container py-5">
+    {{-- Afficher le message de succès passé depuis le contrôleur (évite le flash session) --}}
+    @isset($messageSucces)
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ $messageSucces }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    @endisset
     <!-- Récapitulatif modernisé -->
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -78,7 +85,7 @@
                     <h3 class="h5 text-center mb-4 text-dark">Suivi de votre demande</h3>
 
                     <div class="row text-center position-relative">
-                        
+
 
                         <!-- Étape 1 - Message reçu -->
                         <div class="col-4 position-relative" style="z-index: 2;">
